@@ -219,6 +219,44 @@ namespace MyProject.sc1
             {
                 print(cut);
             }
+
+            // string[,] cha = {{"가렌","M","33","95","85","70"},
+            //                 {"니달리","F","22","85","95","75"},
+            //                 {"잭스","M","25","70","70","70"},
+            //                 {"카타리나","F","27","95","95","95"}};
+
+            // for (int i = 0; i<cha.GetLength(0); i++)
+            // {
+
+            //     int sum = int.Parse(cha[i,3]) + int.Parse(cha[i,4]) + int.Parse(cha[i,5]);
+            //     print($"이름:{cha[i,0]} 성별:{cha[i,1]} 나이:{cha[i,2]} 총점:{sum} 평균{sum/3}");
+
+            // }
+
+
+            void PrintStudentInfo(string name)
+            {
+                string[,] cha =
+                {
+                    {"가렌", "M", "33", "95", "85", "70"},
+                    {"니달리", "F", "22", "85", "95", "75"},
+                    {"잭스", "M", "25", "70", "70", "70"},
+                    {"카타리나", "F", "27", "95", "95", "95"}
+                };
+
+                for (int i = 0; i < cha.GetLength(0); i++)
+                {
+                    if (cha[i, 0] == name)
+                    {
+                        int sum = int.Parse(cha[i, 3]) + int.Parse(cha[i, 4]) + int.Parse(cha[i, 5]);
+                        double average = sum / 3.0;
+                        print($"이름: {cha[i, 0]} 성별: {cha[i, 1]} 나이: {cha[i, 2]} 총점: {sum} 평균: {average}");
+                        return;
+                    }
+                }
+            }
+
+            PrintStudentInfo("가렌");
         }
 
 
